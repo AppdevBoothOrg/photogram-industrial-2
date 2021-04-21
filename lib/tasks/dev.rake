@@ -11,7 +11,7 @@ task sample_data: :environment do
   starting = Time.now
   
   
-  20.times do
+  8.times do
     name = Faker::Name.first_name.downcase
     u = User.create(
     email: "#{name}@example.com",
@@ -20,6 +20,20 @@ task sample_data: :environment do
     private: [true, false].sample
     )
   end
+
+    u = User.create(
+      email: "bob@example.com",
+      username: "bob",
+      password: "password",
+      private: true
+    )
+
+    u = User.create(
+      email: "alice@example.com",
+      username: "alice",
+      password: "password",
+      private: false
+    )
 
   users = User.all
   
