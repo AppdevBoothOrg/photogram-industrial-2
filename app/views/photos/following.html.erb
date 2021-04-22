@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <h1>
@@ -6,7 +7,7 @@
 
     <ul class="nav nav-pills nav-justified">
       <li class="nav-item">
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link active" %>
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
       </li>
 
       <li class="nav-item">
@@ -22,14 +23,13 @@
       </li>
 
       <li class="nav-item">
-        <%= link_to "Following", following_path(@user.username), class: "nav-link" %>
+        <%= link_to "Following", following_path(@user.username), class: "nav-link active" %>
       </li>
 
     </ul>
   </div>
 </div>
 
-<% current_user.own_photos.each do |a_photo| %>
-  <%= render "photos/photo", a_photo: a_photo %>
+<% current_user.leaders.each do |a_leader| %>
+  <%= render "photos/follow_type", follow_type: a_leader %>
 <% end %>
-
